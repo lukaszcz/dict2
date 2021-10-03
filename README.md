@@ -50,7 +50,7 @@ Dictionaries that come with Dict2
 There are several small dictionaries from Project Gutenberg that are
 distributed together with Dict2. They are installed to
 `prefix/share/dict` by default, where `prefix` is the directory you
-passed as a `--prefix` parameter to `configure` (typically
+passed as the `--prefix` parameter to `configure` (typically
 `/usr/local` if you didn't pass anything).
 
 The dictionary files are copyright by Winfried Honig. View them in an
