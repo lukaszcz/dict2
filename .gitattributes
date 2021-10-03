@@ -1,0 +1,9 @@
+install-sh linguist-detectable=false
+config.guess linguist-detectable=false
+config.sub linguist-detectable=false
+mkinstalldirs linguist-detectable=false
+ltmain.sh linguist-detectable=false
+depcomp linguist-detectable=false
+compile linguist-detectable=false
+configure linguist-detectable=false
+missing linguist-detectable=false
