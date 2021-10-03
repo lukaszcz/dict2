@@ -94,7 +94,6 @@ static GtkLabel *progress_dialog_label2;
 static GtkDialog *list_choose_dialog;
 static GtkDialog *about_dialog;
 static GtkDialog *options_dialog;
-static GtkDialog *readme_dialog;
 static GtkDialog *definition_dialog;
 static GtkLabel *list_choose_label;
 static GtkStatusbar *statusbar;
@@ -109,7 +108,6 @@ static GtkCheckButton *stem_checkbutton;
 static GtkCheckButton *inflections_checkbutton;
 static GtkCheckButton *forms_checkbutton;
 static GtkSpinButton *min_cached_file_size_spinbutton;
-static GtkTextView *readme_textview;
 static GtkTextView *lang1_textview;
 static GtkTextView *lang2_textview;
 static GtkLabel *lang1_label;
@@ -173,7 +171,6 @@ int run_gui(int argc, char** argv)
   about_dialog =
       GTK_DIALOG (glade_xml_get_widget(xml, "about_dialog"));
   options_dialog = GTK_DIALOG (glade_xml_get_widget(xml, "options_dialog"));
-  readme_dialog = GTK_DIALOG (glade_xml_get_widget(xml, "readme_dialog"));
   definition_dialog = GTK_DIALOG (glade_xml_get_widget(xml, "definition_dialog"));
   statusbar = GTK_STATUSBAR (glade_xml_get_widget(xml, "statusbar"));
   autoload_view = GTK_TREE_VIEW (glade_xml_get_widget(xml, "autoload_view"));
@@ -195,8 +192,6 @@ int run_gui(int argc, char** argv)
       GTK_CHECK_BUTTON (glade_xml_get_widget(xml, "inflections_checkbutton"));
   forms_checkbutton =
       GTK_CHECK_BUTTON (glade_xml_get_widget(xml, "forms_checkbutton"));
-  readme_textview =
-      GTK_TEXT_VIEW (glade_xml_get_widget(xml, "readme_textview"));
   lang1_textview =
       GTK_TEXT_VIEW (glade_xml_get_widget(xml, "lang1_textview"));
   lang2_textview =
@@ -291,23 +286,8 @@ int run_gui(int argc, char** argv)
                                                       "text", 0, NULL);
   gtk_tree_view_append_column (GTK_TREE_VIEW (autoload_view), column1);
 
-  // initialize readme_textview
 
-  f = fopen(path_readme, "r");
-  if (f != NULL)
-  {
-    GtkTextBuffer* buf = gtk_text_view_get_buffer(readme_textview);
-    strbuf_len = fread(strbuf, 1, STRBUF_SIZE, f);
-    if (g_utf8_validate(strbuf, strbuf_len, 0))
-    {
-      gtk_text_buffer_set_text(buf, strbuf, strbuf_len);
-    }
-    else
-    {
-      fprintf(stderr, "Invalid UTF-8 in the README file.");
-    }
-    fclose(f);
-  }
+  // initialize the stem/inflect/forms checkboxes
 
   gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(stem_checkbutton),
                                opt_search_stem);
@@ -1204,19 +1184,6 @@ void on_about1_activate(GObject *dummy1, gpointer dummy2)
   gtk_widget_show_all(GTK_WIDGET(about_dialog));
   gtk_dialog_run(about_dialog);
   gtk_widget_hide_all(GTK_WIDGET(about_dialog));
-  busy = 0;
-}
-
-void on_readme1_activate(GObject *dummy1, gpointer dummy2)
-{
-  if (busy)
-  {
-    return;
-  }
-  busy = 1;
-  gtk_widget_show_all(GTK_WIDGET(readme_dialog));
-  gtk_dialog_run(readme_dialog);
-  gtk_widget_hide_all(GTK_WIDGET(readme_dialog));
   busy = 0;
 }
 

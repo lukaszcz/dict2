@@ -10,7 +10,7 @@ Source0: %{name}-%{version}.tar.gz
 Source1: dict2.desktop
 Icon: dict2.xpm
 
-%description 
+%description
 Dict2 is a GTK+ dictionary application intended mainly to
 be used with German-English, English-German dictionaries from
 www.dict.cc. However, it may display dictionaries in any language.
@@ -41,7 +41,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 /usr/share/applications/dict2.desktop
-/usr/share/dict2/README
 /usr/share/dict2/honig.txt
 /usr/share/dict2/irregular_verbs_de.txt
 /usr/share/dict2/dict2.glade
@@ -57,4 +56,3 @@ rm -rf $RPM_BUILD_ROOT
 %changelog
 * Fri Sep 15 2006  <lc235951@localhost.localdomain> - 1.1.4-1
 - Initial build.
-

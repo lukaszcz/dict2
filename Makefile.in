@@ -14,7 +14,6 @@
 
 @SET_MAKE@
 
-
 VPATH = @srcdir@
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
@@ -95,15 +94,14 @@ am__aclocal_m4_deps = $(top_srcdir)/configure.ac
 am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 DIST_COMMON = $(srcdir)/Makefile.am $(top_srcdir)/configure \
-	$(am__configure_deps) $(dist_noinst_SCRIPTS) \
-	$(dist_noinst_DATA) $(dist_pkgdata_DATA) $(am__DIST_COMMON)
+	$(am__configure_deps) $(dist_noinst_DATA) $(dist_pkgdata_DATA) \
+	$(am__DIST_COMMON)
 am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-SCRIPTS = $(dist_noinst_SCRIPTS)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -367,8 +365,7 @@ top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign 1.4
 SUBDIRS = src data docs
 dist_pkgdata_DATA = README.md pixmaps/dict2.xpm dict2.glade
-dist_noinst_DATA = dict2.desktop dict2.gladep dict2.spec TODO applications/dict2.desktop
-dist_noinst_SCRIPTS = build-rpm.sh
+dist_noinst_DATA = dict2.desktop dict2.gladep TODO applications/dict2.desktop
 nobase_data_DATA = applications/dict2.desktop
 all: config.h
 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
@@ -781,7 +778,7 @@ distcleancheck: distclean
 	       exit 1; } >&2
 check-am: all-am
 check: check-recursive
-all-am: Makefile $(SCRIPTS) $(DATA) config.h
+all-am: Makefile $(DATA) config.h
 installdirs: installdirs-recursive
 installdirs-am:
 	for dir in "$(DESTDIR)$(pkgdatadir)" "$(DESTDIR)$(datadir)"; do \

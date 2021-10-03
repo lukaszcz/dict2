@@ -91,6 +91,6 @@ regexes have similar syntax, so `man grep` may also be of use).
 Copyright and license
 ---------------------
 
-Copyright (C) 2007-2021 by Lukasz Czajka.
+Copyright (C) 2006-2008 by Lukasz Czajka.
 
 Distributed under GPL 2. See [LICENSE](LICENSE).
