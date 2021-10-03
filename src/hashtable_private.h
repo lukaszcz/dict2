@@ -12,13 +12,13 @@
 
 struct entry
 {
-  int s_off; /* the offset of the key with respect to some memory mapped file
+  long s_off; /* the offset of the key with respect to some memory mapped file
     - the file containing the words of the dictionary with which this
   hashtable is associated (see dict.h); a pointer to the file is kept in
   the hashtable in file_start;
     s_off + file_start gives a pointer to the key. */
-  int s_len; /* the length of the key */
-  unsigned int h; /* the value of the hash function for the key */
+  long s_len; /* the length of the key */
+  size_t h; /* the value of the hash function for the key */
   void *v; /* the value - the list of dictionary entries associated with the
               key (see dict.h) is obtained by passing this to
               hashtable_get_list_from_value */

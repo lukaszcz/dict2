@@ -23,7 +23,7 @@ Requirements
 ------------
 * Linux
 * GCC
-* GTK development files (libglade-2.0, libgnomeui-2.0)
+* GTK2 development files (libglade-2.0, libgnomeui-2.0)
 * libiconv
 
 Installation
@@ -36,7 +36,8 @@ make install
 
 If you're missing the necessary libraries (`configure` gives an
 error), try searching for `libgnomeui`, `libglade`, `libiconv` or
-similar with your package manager.
+similar with your package manager. On Debian/Ubuntu the packages you
+may need are called `libglade2-dev` and `libgnomeui-dev`.
 
 Usage
 -----

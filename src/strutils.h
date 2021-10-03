@@ -29,11 +29,11 @@ void strutils_cleanup();
 /* The conversion functions return the converted string
   (which points to an internal static buffer) or NULL on
   failure. */
-char *conv_utf8_to_iso_8859_15(const char *s, unsigned s_len);
-char *conv_iso_8859_15_to_utf8(const char *s, unsigned s_len);
+char *conv_utf8_to_iso_8859_15(const char *s, size_t s_len);
+char *conv_iso_8859_15_to_utf8(const char *s, size_t s_len);
 /* Converts html character entities within the string to
   corresponding UTF-8 characters. */
-char *conv_html_to_utf8(const char *s, int s_len);
+char *conv_html_to_utf8(const char *s, long s_len);
 
 /* String functions. */
 

@@ -1,0 +1,12 @@
+*.o
+Makefile
+src/dict2
+*~
+.DS_Store
+autom4te.cache
+config.h
+config.log
+config.status
+libtool
+src/.deps
+stamp-h1

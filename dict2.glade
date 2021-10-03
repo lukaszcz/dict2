@@ -766,18 +766,14 @@
     <property name="type_hint">GDK_WINDOW_TYPE_HINT_DIALOG</property>
     <property name="program_name">Dict2</property>
     <property name="copyright">Copyright (C) 2006-2008 by Łukasz Czajka</property>
-    <property name="comments" translatable="yes">Report bugs to: lc235951@students.mimuw.edu.pl
-Feature requests are appreciated, but not guaranteed 
-to be dealt with immediately.
-
-You should probably visit http://www.dict.cc to
+    <property name="comments" translatable="yes">You should probably visit http://www.dict.cc to
 download additional dictionary files.
 </property>
-    <property name="website">http://students.mimuw.edu.pl/~lc235951/dict/</property>
+    <property name="website">http://lukaszcz.github.io/dict2/</property>
     <property name="license" translatable="yes">The application program is under GPL.
-See the COPYING file in the distribution package.
+See the LICENSE file in the distribution package.
 
-The dictionary files are copyright by Winfried Honig. 
+The dictionary files are copyright by Winfried Honig.
 View each of these files in an ordinary text editor to
 see the exact license requirements.
 </property>

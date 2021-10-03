@@ -49,7 +49,7 @@ static char *key[] = {"quot", "amp", "lt", "gt", "nbsp", "iexcl", "cent",
                       "oacute", "ocirc", "otidle", "ouml", "divide",
                       "oslash", "ugrave", "uacute", "ucirc", "uuml",
                       "yacute", "thorn", "yuml"};
-static int data[] = {34, 38, 60, 62, 160, 161, 162,
+static long data[] = {34, 38, 60, 62, 160, 161, 162,
                      163, 164, 165, 166, 167, 168,
                      169, 170, 171, 172, 173, 174, 175,
                      176, 177, 178, 179, 180, 181,
@@ -94,7 +94,8 @@ void strutils_cleanup()
 {
   iconv_close(cdesc_utf8_to_iso);
   iconv_close(cdesc_iso_to_utf8);
-  hdestroy();
+  // Calling hdestroy() causes a double free on macOS
+  //  hdestroy();
 }
 
 /* Character set conversions */
@@ -153,10 +154,10 @@ static char *ucs_to_utf8(wchar_t c, char *result)
   return result;
 }
 
-char *conv_utf8_to_iso_8859_15(const char *s, unsigned s_len)
+char *conv_utf8_to_iso_8859_15(const char *s, size_t s_len)
 {
   char *out = conv_buffer;
-  unsigned out_len = MAX_STR_LEN;
+  size_t out_len = MAX_STR_LEN;
   iconv(cdesc_iso_to_utf8, NULL, NULL, NULL, NULL); /* reset state */
   if (iconv(cdesc_utf8_to_iso, (char **) &s, &s_len, &out, &out_len) == -1)
   {
@@ -167,10 +168,10 @@ char *conv_utf8_to_iso_8859_15(const char *s, unsigned s_len)
   return conv_buffer;
 }
 
-char *conv_iso_8859_15_to_utf8(const char *s, unsigned s_len)
+char *conv_iso_8859_15_to_utf8(const char *s, size_t s_len)
 {
   char *out = conv_buffer;
-  unsigned out_len = MAX_STR_LEN;
+  size_t out_len = MAX_STR_LEN;
   iconv(cdesc_iso_to_utf8, NULL, NULL, NULL, NULL); /* reset state */
   if (iconv(cdesc_iso_to_utf8, (char **) &s, &s_len, &out, &out_len) == -1)
   {
@@ -181,7 +182,7 @@ char *conv_iso_8859_15_to_utf8(const char *s, unsigned s_len)
   return conv_buffer;
 }
 
-char *conv_html_to_utf8(const char *s, int s_len)
+char *conv_html_to_utf8(const char *s, long s_len)
 {
   char str[MAX_STR_LEN + 1];
   unsigned u;

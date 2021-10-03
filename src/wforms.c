@@ -230,7 +230,7 @@ static void apply_rule(const word_data_t *word_data,
                        const char *star, rule_t *r)
 {
   int i = 0, j = 0;
-  char w[MAX_STR_LEN];
+  char w[MAX_STR_LEN + 1];
   const char *s = r->arg;
   int s_len = strlen(s);
   word_data_t *wd;

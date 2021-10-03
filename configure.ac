@@ -1,8 +1,8 @@
-AC_INIT
+AC_INIT([dict2], [2.0.1])
 AC_CONFIG_SRCDIR([configure.ac])
+AC_CONFIG_HEADERS([config.h])
 
-AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(dict2, 2.0.1)
+AM_INIT_AUTOMAKE
 AM_ICONV
 
 AC_LANG([C])

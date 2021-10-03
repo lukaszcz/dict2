@@ -4,10 +4,12 @@ dict2_SOURCES = dict2.c dictionary.c gui.c utils.c file.c options.c cache.c \
 	hashtable_itr.c
 
 # set the include path found by configure
-INCLUDES= $(all_includes)
+AM_CPPFLAGS = $(all_includes)
+
+METASOURCES = AUTO
 
 # the library search path.
-dict2_LDFLAGS = $(all_libraries) -lm
+dict2_LDFLAGS = $(all_libraries) -lm -liconv
 noinst_HEADERS = dictionary.h utils.h file.h limits.h gui.h options.h paths.h \
 		cache.h wforms.h strutils.h list.h fnv.h hashtable.h hashtable_itr.h \
 	hashtable_private.h rbtree.h

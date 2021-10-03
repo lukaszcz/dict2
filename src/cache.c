@@ -33,6 +33,7 @@
 #include "list.h"
 #include "strutils.h"
 #include "utils.h"
+#include "file.h"
 #include "cache.h"
 
 static char cache_file_path[MAX_NAME_LEN * 3];
@@ -194,18 +195,6 @@ void cache_save(dict_t *dict, int dict_num)
       return;
     }
 
-/*    for (i = 0; i < size * sizeof(struct entry *); ++i)
-    {
-      if (fputc(0, f) == EOF)
-      {
-        syserr("Error writing cache file (7)");
-        free(htab);
-        fclose(f);
-        cache_clear();
-        return;
-      }
-    }*/
-
     /* write Entries */
     lists_pos = ftell(f) + hash->entrycount * sizeof(struct entry);
     pos = lists_pos;
@@ -327,7 +316,7 @@ void cache_save(dict_t *dict, int dict_num)
     assert (ftell(f) == pos);
 
     /* write Table */
-    if (fseek(f, (unsigned long) htab_off, SEEK_SET) == -1)
+    if (fseek(f, (size_t) htab_off, SEEK_SET) == -1)
     {
       syserr("Error writing cache file (16)");
       free(htab);
@@ -349,7 +338,7 @@ void cache_save(dict_t *dict, int dict_num)
     free(htab);
 
 #ifdef DEBUG
-    fprintf(stderr, "\nhtab_off = 0x%lX\n", (unsigned long) htab_off);
+    fprintf(stderr, "\nhtab_off = 0x%lX\n", (size_t) htab_off);
     fprintf(stderr, "lists_pos = 0x%lX\n", lists_pos);
     fprintf(stderr, "size = %d\n", size);
 #endif
