@@ -7,3 +7,4 @@ depcomp linguist-detectable=false
 compile linguist-detectable=false
 configure linguist-detectable=false
 missing linguist-detectable=false
+Makefile linguist-detectable=false
