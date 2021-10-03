@@ -1,0 +1,19 @@
+2007-09-19  <>
+	Improved caching - practically eliminated any loading delay and reduced memory usage. 
+	 
+
+2007-09-18  <>
+	Got rid of threading - too much a burden for this small app.  
+	Implemented cursor changing.  
+	Eliminated two memory leaks. 
+	 
+
+2007-09-18  <>
+	Minor GUI improvements. 
+
+2007-09-18  <>
+	Implemented the Word Formation Algorithm (version 2; without tries; with ordering). 
+
+2007-09-16  <>
+	Implementation of the Word Formation Algorithm - first version (with tries). Added red-black trees module. 
+

@@ -1,0 +1,40 @@
+* ugly loading dialog when loading cached files
+
+* hints to mmap
+   (random access - to avoid performance degrading readahead)
+
+* bash <-> bashful - doesn't work even with 'stem'. Why?
+
+* documentation: wfa.pdf
+
+* tests, tests, tests
+
+* history (back, forward, etc)
+
+* easier switching between languages
+
+* the scan feature
+   (and the status bar icon - without the scan feature the icon is
+   rather useless, so it's not worth to implement it)
+
+* fuzzy search
+   (read "Jewels of Stringology", W. Rytter, M. Crochemore)
+
+* exception rules for 'forms', 'stem' and 'inflect' options
+   to avoid occasional absurdal word formation (bus - busy; inside,
+   outside - side); this seems to be a rather difficult problem - no
+   general rule
+
+* command line queries
+
+* different dictionary file character encodings:
+   generalise the dictionary file format
+
+* more languages
+
+* optimize:
+   (2/3 time of keyword search) add_wforms, (1/3 time of keyword
+   search) lst_cmp - get rid of g_utf8_collate first of all
+
+* translate the interface into German
+   if my German language skills permit (or find a native speaker)

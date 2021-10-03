@@ -1,0 +1,322 @@
+
+# compare - comparison (nothing else?)
+@@
+*pare	*parison
+*parison	*pare
+
+######
+
+# make - maker, take - taker, tame - tamer
+@@
+*er	*
+*<c>e	 *<-2>er
+*[^e]	*<-1>er
+
+# drop - dropper
+@@
+*<v><c>		*<-2><-1><-1>er
+*<v><c><c>er	*<-5><-4>
+
+@@
+*hood	*hood
+*ness	*ness
+*dom	*dom
+*ance	*ance
+*ment	*ment
+*al	*al
+*ty	*ty
+
+*tion	*
+*[^t]	*tion
+
+# (secret <-> secretion)
+@@
+*tion	*t
+*t	*tion
+
+# (convert <-> conversion, avert <-> aversion)
+@@
+*rt	*rsion
+*rsion	*rt
+
+# (conclude <-> conclusion, include <-> inclusion, abrade <-> abrasion)
+@@
+*de	*sion
+*sion	*de
+
+# permit - permission, transmit - transmission
+@@
+*mit	 *mission
+*mission *mit
+
+@@
+*t	*cy
+*cy	*t
+# (secret <-> secrecy, patent <-> patency)
+
+@@
+*tion	*tion
+*hood	*hood
+*ness	*ness
+*ance	*ance
+*ment	*ment
+*al	*al
+*ty	*ty
+
+*dom	*
+*	*dom
+
+@@
+*tion	*tion
+*ness	*ness
+*dom	*dom
+*ance	*ance
+*ment	*ment
+*al	*al
+*ty	*ty
+
+*hood	*
+*	*hood
+
+@@
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ance	*ance
+*ment	*ment
+*al	*al
+*ty	*ty
+
+*ness	*
+*	*ness
+
+#  -ance (disappearance)
+@@
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ment	*ment
+*al	*al
+*ty	*ty
+
+*ance	*
+*<c>	*<-1>ance
+
+#  -ement (developement)
+@@
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ance	*ance
+*al	*al
+*ty	*ty
+
+*ement	*
+*<c>	*<-1>ement
+
+#  -ment
+@@
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ance	*ance
+*ement	*ement
+*al	*al
+*ty	*ty
+
+*ment	*
+*	*ment
+
+#  -al,
+@@
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ance	*ance
+*ment	*ment
+*ty	*ty
+
+*al	*
+*e	*al
+*	*al
+
+#  -e <-> -al (refuse <-> refusal)
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ance	*ance
+*ment	*ment
+*ty	*ty
+
+*al	*e
+
+#  -ty,
+*tion	*tion
+*hood	*hood
+*dom	*dom
+*ness	*ness
+*ance	*ance
+*ment	*ment
+*al	*al
+
+*ty	*
+*[^t]	*<-1>ty
+
+#  -y <-> -ial (bury <-> burial)
+@@
+*y	*ial
+*ial	*y
+
+#  -ent <-> -ence (opulent <-> opulence, insolent <-> insolence,
+#                  magnificent <-> magnificence),
+@@
+*ent	*ence
+*ence	*ent
+
+#  -ate <-> -acy (appropriate <-> appropriacy, pirate <-> piracy),
+@@
+*ate	*acy
+*acy	*ate
+
+#  -ate <-> -ation (eliminate <-> elimination, obfuscate <-> obfuscation)
+@@
+*ate	*ation
+*ation	*ate
+
+#  -ify <-> -ification (petrify <-> petrification, magnify <-> magnification,
+#                       justify <-> justification),
+@@
+*ify	*ification
+*ification	*ify
+
+#  -ble <-> -bility (conceivable <-> conceivability,
+#                    available <-> availability, possible <-> possibility)
+@@
+*ble	*bility
+*bility	*ble
+
+#  -ble <-> -bly,
+@@
+*ble	*bly
+*bly	*ble
+
+#  -ible,
+@@
+*<c>y	*<-2>y
+*able	*able
+
+*ible	*
+*	*ible
+
+#  -able,
+@@
+*py	*pyable
+*<c>y	*<-2>y
+*ible	*ible
+
+*able	*
+*<c>	*<-1>able
+
+#  -ate,
+@@
+*<c>y	*<-2>y
+*ble	*ble
+
+*ate	*
+*	*ate
+
+#  -ize,
+@@
+*en	*en
+*ate	*ate
+*ise	*ise
+
+*ize	*
+*	*ize
+
+#  -ise,
+@@
+*en	*en
+*ate	*ate
+*ize	*ize
+
+*ise	*
+*	*ise
+
+#  -en (hard - harden, soft - soften)
+@@
+*ate	*ate
+*ize	*ize
+*ise	*ise
+
+*en	*
+*<c>	*<-1>en
+
+#  -y (bloody),
+@@
+*ly	*ly
+
+*<c>y	*<-2>
+*<c>	*<-1>y
+
+
+#  -ly (consciously),
+@@
+*ly    *
+*      *ly
+
+#  -e <-> -able (describe <-> describable, conceive <-> conceivable),
+@@
+*<c>e	*<-2>able
+*<c>able	*<-5>e
+
+#  -e <-> -ify (pure <-> purify)
+@@
+*<c>e	*<-2>ify
+*ify	*e
+
+#  -y <-> -ious (glory <-> glorious, fury <-> furious),
+# -e <-> -ious (avarice <-> avaricious)
+@@
+*<c><v>  *<-2>ious
+
+@@
+*[^t]ious	*<-5>e
+
+@@
+*[^t]ious	*<-5>y
+
+# -tious <-> -tion (ambitious <-> ambition)
+@@
+*tious	*tion
+*tion	*tious
+
+# -ious <-> -iety (anxious <-> anxiety)
+@@
+*ious	*iety
+*iety	*ious
+
+# -cious <-> -city (atrocious <-> atrocity)
+@@
+*cious	*city
+*city	*cious
+
+#  -tion <-> -tive (attention <-> attentive, association <-> associative),
+@@
+*tion	*tive
+*tive	*tion
+
+#  -sion <-> -sive (comprehension <-> comprehensive, )
+@@
+*sion    *sive
+*sive	 *sion
+
+#  -l <-> -lity (real <-> reality),
+@@
+*l	*lity
+*lity	*l

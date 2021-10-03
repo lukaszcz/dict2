@@ -1,0 +1,81 @@
+
+# <v> = any vowel
+# <c> = any consonant
+
+# Note: for a more coherent and in-depth discussion of the
+# word-formation algorithm see docs/wfa.pdf
+
+# Word formation operates on sets of words. Every word in the set is
+# matched against the rules specified in (*.stem, *.inflect, *.forms)
+# files, and specific actions are applied if the word matches, as
+# described below. Note that words are never removed form the set. As
+# a result of a successful match new words may be added to the set,
+# subject to subsequent application of the rules.
+
+# No conversion is tried twice on a word (whether it matches or not),
+# and no duplicated words may appear in the set (it's a real set
+# ;). Conversions which would duplicate a suffix or a prefix are not
+# performed (eg. disgrace -> disdisgrace). More conversions may be
+# excluded by per-file rules. Conversions are applied as long as any
+# of the conversions is applicable to any of the words in the
+# set. Derived words 'inherit' the information about applied
+# conversions from the word they were derived from. E.g. if dishearten
+# is converted to hearten by conversion dis- { del } +, then this
+# conversion is not applied to hearten. If the conversion chain length
+# of dishearten is n, then the conversion chain length of hearten is
+# also n. The ccl of the words initially in the set is 0. If the
+# conversion was from hearten to dishearten and the ccl of hearten was
+# n, then ccl of dishearten would be n + 1, i.e. ccl increases with
+# applying a conversion that increases the length of a word. No
+# conversions increasing the length of a word are applied to words with
+# ccl >= MAX_CCL. (ccl = conversion chain length).
+
+@@
+*ed	*e
+*e	*ed
+
+@@
+*ed	*
+*	*ed
+
+# doubling of a consonant (eg. commit -> committed)
+@@
+*<v><c>		*<-2><-1><-1>ed
+*<v><c><c>ed	*<-5><-4>
+
+# try -> tried
+@@
+*ied	*y
+*y	*ied
+
+@@
+# agency - agencies, commodity - commodities
+*ies	*y
+*<v>es	*<-3>
+*y	*ies
+# does, potatoes
+*  	*es
+
+@@
+*es	*es
+
+# alias - aliases, class - classes
+*s   	*ses
+*ch   	*ches
+*sh   	*shes
+*z   	*zes
+*   	*s
+
+@@
+*es	*es
+
+*s   	*
+
+@@
+# makes, comes
+*es	*e
+*e	*es
+
+@@
+*esis	*eses
+*eses	*esis

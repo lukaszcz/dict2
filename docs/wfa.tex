@@ -1,0 +1,37 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[OT4]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+\usepackage{longtable}
+
+\begin{document}
+
+\title{The Word Formation Algorithm}
+\author{Łukasz Czajka}
+\date{\today}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Problem statement}
+
+Given a string \verb#w# representing a word in a language \verb#L#,
+we wish to obtain all words in \verb#L# that may be derived from
+\verb#w# according to some predefined rules \verb#R# for that language.
+
+For instance, if the language is German and \verb#w = "machen"#, we
+would like to obtain ``gemacht'', ``machte'', etc. The set of rules
+\verb#R# should contain rules for inflecting words and forming
+other derivatives.
+
+\section{Rules}
+
+The algorithm actually uses several sets of rules for one
+language. Rules for ``inflect'', ``stem'' and ``forms'' options are
+stored in separate files on disk.
+
+\end{document}

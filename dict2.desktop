@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=2.0
+Type=Application
+Exec=/usr/bin/dict2
+Icon=/usr/share/dict2/dict2.xpm
+Terminal=false
+Name=Dict2
+Comment=German-English dictionary
+Comment[de]=Deutsch-Englisch Wörterbuch
+Categories=Gnome;Applications;Office;

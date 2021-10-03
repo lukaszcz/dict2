@@ -1,0 +1,40 @@
+
+@@
+*ig	*
+* 	*ig
+
+@@
+*ern	*e
+*e 	*ern
+
+@@
+*ung	*
+*ei	*eiung
+*eu	*euung
+*<c>	*<-1>ung
+
+@@
+*keit	*
+*k	*k
+*<c>	*<-1>keit
+
+@@
+*oheit	*oh
+*heit	*
+*eu	*euheit
+*ei	*eiheit
+*oh	*oheit
+*h	*h
+*<c>	*<-1>heit
+
+@@
+*isch	*
+*	*isch
+
+@@
+*lich	*
+*[^l]	*<-1>lich
+
+@@
+*tion	*
+*[^t] 	*<-1>tion

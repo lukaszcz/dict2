@@ -1,0 +1,206 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[OT4]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{a4wide}
+\usepackage{longtable}
+
+\begin{document}
+
+\title{The format of cache files}
+\author{Łukasz Czajka}
+\date{\today}
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Basic types}
+
+The following table gives a short description of basic (atomic) types.
+
+In all the following tables it is assumed that \verb#sizeof(int) == 4#
+and \verb#sizeof(void *) == 4#. If this is not the case, then the
+sizes and offsets should be changed accordingly.
+
+When two numbers x/y appear for a size, then x is for 32-bit, y for
+64-bit architectures.
+
+
+\begin{longtable}{|p{0.5in}|p{0.5in}|p{1.7in}|p{2.8in}|}
+\hline
+{\bf Name} & {\bf Size} & {\bf Equivalent C type} & {\bf Description}\\
+\hline
+\endhead
+
+uint & 4 & \verb#unsigned int# & unsigned integer
+
+\\
+\hline
+
+int & 4 & \verb#int# & signed integer
+
+\\
+\hline
+
+foff & 4/8 & \verb#void *# & an offset from the beginning of the cache file
+
+\\
+\hline
+
+short & 2 & \verb#unsigned short int# & a short unsigned integer
+
+\\
+\hline
+\caption{Basic types}
+\end{longtable}
+
+
+
+\section{General layout}
+
+Each cache file stores one dictionary (\verb#dict_t#) together with its
+hashtable.
+
+All offsets are from the beginning of parent components.
+
+The following table gives a general layout of the file. The components
+are in the order they are written to the file by the
+application. However, they may appear in any order, save that \verb#Header#
+must always be first.
+
+\begin{longtable}{|p{0.6in}|p{2.3in}|p{2.7in}|}
+\hline
+{\bf Name} & {\bf Size} & {\bf Description}\\
+\hline
+\endhead
+
+\verb#Header# & 24/28 & The header contains all data necessary to locate other
+components.
+
+\\
+\hline
+
+\verb#Table# & \verb#Header->tablelength * 4/8# & The table containing
+file offsets of \verb#Entry# components. It mirrors
+\verb#dict->hash->table#.
+
+\\
+\hline
+
+\verb#Entries# & \verb#Header->entrycount *# \verb#sizeof(Entry)# & A group of all the
+\verb#Entry# components.
+
+\\
+\hline
+
+\verb#Lists# & --- & A group of all the \verb#List# components.
+
+\\
+\hline
+\caption{Main components of a cache file}
+\end{longtable}
+
+
+
+\section{Header}
+
+
+\begin{longtable}{|p{1in}|p{0.6in}|p{0.6in}|p{0.6in}|p{2.7in}|}
+\hline
+{\bf Name} & {\bf Offset} & {\bf Size} & {\bf Type} & {\bf Description}\\
+\hline
+\endhead
+
+\verb#dict->size# & 0 & 4 & uint & The size of the dictionary stored --
+the number of lines in the dictionary file.
+
+\\
+\hline
+
+\verb#tablelength# & 4 & 4 & uint & The length of the hashtable.
+
+\\
+\hline
+
+\verb#entrycount# & 8 & 4 & uint & The number of entries in the hashtable --
+the number of \verb#Entry# components.
+
+\\
+\hline
+
+\verb#loadlimit# & 12 & 4 & uint &
+
+\\
+\hline
+
+\verb#primeindex# & 16 & 4 & uint &
+
+\\
+\hline
+
+\verb#hashtab_off# & 20 & 4/8 & foff & The file offset of \verb#Table#.
+
+\\
+\hline
+\caption{Header}
+\end{longtable}
+
+
+
+\section{Table}
+
+The table contains file offsets of \verb#Header->tablelength# \verb#Entry#
+components, which are the heads of hashtable buckets.
+\medskip
+
+\section{Entry}
+
+\begin{longtable}{|p{1in}|p{0.6in}|p{0.6in}|p{0.6in}|p{2.7in}|}
+\hline
+{\bf Name} & {\bf Offset} & {\bf Size} & {\bf Type} & {\bf Description}\\
+\hline
+\endhead
+
+\verb#s_off# & 0 & 4 & uint & see \verb#hashtable_private.h#
+
+\\
+\hline
+
+\verb#s_len# & 4 & 4 & uint & see \verb#hashtable_private.h#
+
+\\
+\hline
+
+\verb#h# & 8 & 4 & uint & see \verb#hashtable_private.h#
+
+\\
+\hline
+
+\verb#v_off# & 12 & 4/8 & foff & The offset of the List component associated
+with this \verb#Entry#.
+
+\\
+\hline
+
+\verb#next_off# & 16/20 & 4/8 & foff & The offset of the next \verb#Entry# in the
+current bucket, or 0 if this is the last \verb#Entry# in a
+bucket. Entries in the same bucket should be stored at consecutive
+positions for performance reasons.
+
+\\
+\hline
+\caption{Entry}
+\end{longtable}
+
+
+\section{List}
+
+\verb#List# is a sequence of zero-terminated integers, i.e. it
+consists of a number of non-zero integers and a zero integer
+terminator. The integers represent entry line indicies (see
+\verb#dict.h#, \verb#list.h#).
+
+\end{document}

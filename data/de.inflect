@@ -1,0 +1,67 @@
+
+@@
+mitte*	gemitte*
+erb*	geerb*
+ern*	geern*
+
+unter*	unter*
+über*	über*
+auf*	auf*
+aus*	aus*
+ver*	ver*
+mit*	mit*
+ab*	ab*
+er*	er*
+um*	um*
+ein*	ein*
+
+ge*	*
+*	ge*
+
+@@
+*en	*
+*e	*en
+* 	*en
+
+@@
+*keit	*keit
+*heit	*heit
+*tion	*tion
+*ung	*ung
+
+*[^t]en	*<-3>t
+*t	*en
+*[^t]	*<-1>t
+
+@@
+*isch	*isch
+
+*[^s]en	*<-3>st
+*st	*en
+*[^s]	*<-1>st
+
+@@
+*heit	*heit
+*keit	*keit
+*tion	*tion
+*ung	*ung
+
+*te	*
+*t	*te
+*	*te
+
+@@
+*te	*t
+
+@@
+*er	*
+*e	*er
+*	*er
+
+@@
+*es	*
+*e	*es
+*	*es
+
+#*lich	*lich
+

@@ -1,0 +1,26 @@
+AC_INIT(configure.in)
+
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(dict2, 2.0)
+
+AC_LANG_C
+AC_PROG_CC
+AM_PROG_LIBTOOL
+
+# Checks for libraries.
+PKG_CHECK_MODULES(GTK, libglade-2.0 libgnomeui-2.0 >= 1.110.0)
+AC_SUBST(GTK_CFLAGS)
+AC_SUBST(GTK_LIBS)
+
+CFLAGS="$CFLAGS $GTK_CFLAGS"
+LDFLAGS="$LDFLAGS -export-dynamic"
+
+if test "${prefix}" = "NONE"; then
+   PREF="/usr/local"
+else
+   PREF="${prefix}"
+fi
+
+AC_DEFINE_UNQUOTED(INSTALL_PREFIX, "${PREF}", [The installation prefix.])
+
+AC_OUTPUT(Makefile src/Makefile data/Makefile docs/Makefile)
