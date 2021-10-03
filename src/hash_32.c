@@ -154,9 +154,3 @@ fnv_32_str(char *str, Fnv32_t hval)
     /* return our new hash value */
     return hval;
 }
-
-
-unsigned hash_str(const char *s, int s_len)
-{
-  return fnv_32_buf((void*) s, s_len, FNV1_32A_INIT);
-}

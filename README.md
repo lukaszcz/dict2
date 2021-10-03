@@ -22,7 +22,9 @@ Features
 Requirements
 ------------
 * Linux
-* Gtk2 developement files
+* GCC
+* GTK development files (libglade-2.0, libgnomeui-2.0)
+* libiconv
 
 Installation
 ------------
@@ -32,7 +34,9 @@ make
 make install
 ```
 
-See [INSTALL](INSTALL) for details.
+If you're missing the necessary libraries (`configure` gives an
+error), try searching for `libgnomeui`, `libglade`, `libiconv` or
+similar with your package manager.
 
 Usage
 -----

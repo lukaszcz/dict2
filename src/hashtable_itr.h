@@ -29,13 +29,13 @@ hashtable_iterator(struct hashtable *h);
 /* hashtable_iterator_key
  * - return the value of the (key,value) pair at the current position */
 
-extern inline const char *
+static inline const char *
 hashtable_iterator_key_s(struct hashtable_itr *i)
 {
   return i->e->s_off + i->h->file_start;
 }
 
-extern inline int
+static inline int
     hashtable_iterator_key_s_len(struct hashtable_itr *i)
 {
   return i->e->s_len;

@@ -80,7 +80,7 @@ list_t *list_sort(list_t *list, list_node_cmp_t cmp);
 list_t *list_unique_2(list_t *list, list_node_cmp_t cmp,
                       list_node_func_t node_free);
 
-extern inline list_t *list_unique(list_t *list, list_node_cmp_t cmp)
+static inline list_t *list_unique(list_t *list, list_node_cmp_t cmp)
 {
   return list_unique_2(list, cmp, list_node_free);
 }
@@ -88,7 +88,7 @@ extern inline list_t *list_unique(list_t *list, list_node_cmp_t cmp)
 list_t *list_filter_2(list_t *list, list_node_pred_t pred,
                       list_node_func_t node_free);
 
-extern inline list_t *list_filter(list_t *list, list_node_pred_t pred)
+static inline list_t *list_filter(list_t *list, list_node_pred_t pred)
 {
   return list_filter_2(list, pred, list_node_free);
 }
@@ -102,14 +102,14 @@ void list_free(list_t *list);
 void list_free_2(list_t *list, list_node_func_t node_free);
 
 
-extern inline list_t *strlist_node_new(const char *str)
+static inline list_t *strlist_node_new(const char *str)
 {
   list_t *node = list_node_new();
   node->u.str = xstrdup(str);
   return node;
 }
 
-extern inline list_t *strlist_node_copy(list_t *node)
+static inline list_t *strlist_node_copy(list_t *node)
 {
   assert (node != NULL);
   list_t *node2 = list_node_new();
@@ -117,7 +117,7 @@ extern inline list_t *strlist_node_copy(list_t *node)
   return node2;
 }
 
-extern inline void strlist_node_free(list_t *node)
+static inline void strlist_node_free(list_t *node)
 {
   assert (node != NULL);
   free(node->u.str);
@@ -134,14 +134,14 @@ int strlist_utf8_validate(list_t *list);
 /* strlist_free frees a list of dynamically allocated strings */
 void strlist_free(list_t *list);
 
-extern inline void node_strlist_free(list_t *node)
+static inline void node_strlist_free(list_t *node)
 {
   assert (node != NULL);
   strlist_free(node->u.lst);
   list_node_free(node);
 }
 
-extern inline int node_not_strlist_utf8_validate(list_t *node)
+static inline int node_not_strlist_utf8_validate(list_t *node)
 {
   assert (node != NULL);
   return !strlist_utf8_validate(node->u.lst);

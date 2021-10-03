@@ -179,7 +179,7 @@ extern Fnv64_t fnv_64a_str(char *buf, Fnv64_t hashval);
  * added by Lukasz Czajka
  */
 
-extern inline unsigned hash_str(const char *s, int s_len)
+static inline unsigned hash_str(const char *s, int s_len)
 {
   return fnv_32_buf((void*) s, s_len, FNV1_32A_INIT);
 }
