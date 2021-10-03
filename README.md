@@ -1,6 +1,6 @@
 Dict2 is a dictionary viewing application for Linux. It was written
 with the intention to be used with the German-English dictionary files
-from [www.dict.cc](www.dict.cc).
+from [www.dict.cc](https://www.dict.cc).
 
 **Note**: You must download the dictionary files directly from
 [here](https://www1.dict.cc/translation_file_request.php?l=e). They
