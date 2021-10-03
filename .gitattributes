@@ -7,4 +7,5 @@ depcomp linguist-detectable=false
 compile linguist-detectable=false
 configure linguist-detectable=false
 missing linguist-detectable=false
-Makefile linguist-detectable=false
+*.in linguist-detectable=false
+aclocal.m4 linguist-detectable=false
